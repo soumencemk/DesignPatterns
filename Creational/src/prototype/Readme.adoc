@@ -1,0 +1,26 @@
+= Prototype design pattern
+
+A prototype is a template of any object before the actual object is constructed. In java also, it holds the same meaning. Prototype design pattern is used in scenarios where application needs to create a number of instances of a class, which has almost same state or differs very little.
+
+In this design pattern, an instance of actual object (i.e. prototype) is created on starting, and thereafter whenever a new instance is required, this prototype is cloned to have another instance. The main advantage of this pattern is to have minimal instance creation process which is much costly than cloning process.
+
+- *Prototype* : This is the prototype of actual object as discussed above.
+- **Prototype registry **: This is used as registry service to have all prototypes accessible using simple string parameters.
+- *Client* : Client will be responsible for using registry service to access prototype instances.
+
+== Advantages
+
+- _Adding and removing products at run-time_ – Prototypes let you incorporate a new concrete product class into a system simply by registering a prototypical instance with the client. That’s a bit more flexible than other creational patterns, because a client can install and remove prototypes at run-time.
+- _Specifying new objects by varying values_ – Highly dynamic systems let you define new behavior through object composition by specifying values for an object’s variables and not by defining new classes.
+- _Specifying new objects by varying structure_ – Many applications build objects from parts and subparts. For convenience, such applications often let you instantiate complex, user-defined structures to use a specific subcircuit again and again.
+- __Reduced subclassing __– Factory Method often produces a hierarchy of Creator classes that parallels the product class hierarchy. The Prototype pattern lets you clone a prototype instead of asking a factory method to make a new object. Hence you don’t need a Creator class hierarchy at all.
+
+== Disadvantages
+
+- Overkill for a project that uses very few objects and/or does not have an underlying emphasis on the extension of prototype chains.
+- It also hides concrete product classes from the client
+- Each subclass of Prototype must implement the clone() operation which may be difficult, when the classes under consideration already exist. Also implementing clone() can be difficult when their internals include objects that don’t support copying or have circular references.
+
+== Implemetation in JDK
+
+- The Prototype pattern is available in Java out of the box with a `Cloneable` interface.
