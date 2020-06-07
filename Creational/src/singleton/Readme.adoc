@@ -1,0 +1,18 @@
+= Singleton Design Pattern
+
+Singleton pattern is a design solution where an application wants to have one and only one instance of any class, in all possible scenarios without any exceptional condition. It has been debated long enough in java community regarding possible approaches to make any class singleton. Still, you will find people not satisfied with any solution you give. They cannot be overruled either. In this post, we will discuss some good approaches and will work towards our best possible effort.
+
+== Advantages
+- Singletons prevent decoupling by creating inflexible dependencies between classes, thus severely limiting code reuse in larger projects. Using singletons goes against the idea of abstract interfaces, and has negative impact on your ability to write tests (singletons are usually difficult to mock - in the TDD sense :-)).
+- Moreover, from my experience, whenever you think "hey, I will ALWAYS need only single instance of this class," you are usually proven wrong in the course of few development iterations, and forced to use abominable hacks (don't let me started) like Multitons.
+
+
+== Disadvantages
+
+- Misko Hevery, from Google: It’s make unit testing goes crazy :D Singletons are nothing more than global state. Global state makes it so your objects can secretly get hold of things which are not declared in their APIs, and, as a result, Singletons make your APIs into pathological liars.
+
+
+== implementations in JDK
+
+- ``java.awt.Desktop#getDesktop()``
+- ``java.lang.Runtime#getRuntime()``
