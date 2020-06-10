@@ -1,0 +1,33 @@
+= Bridge Design Pattern
+
+#Decouple an abstraction from its implementation so that the two can vary independently.#
+
+- Bridge pattern decouple an abstraction from its implementation so that the two can vary independently.
+- It is used mainly for implementing platform independence feature.
+- It adds one more method level redirection to achieve the objective.
+- Publish abstraction interface in separate inheritance hierarchy, and put implementation in its own inheritance hierarchy.
+- Use bridge pattern to run-time binding of the implementation.
+- Use bridge pattern to map orthogonal class hierarchies
+- Bridge is designed up-front to let the abstraction and the implementation vary independently.
+
+== Advantages
+
+- Decoupling abstraction from implementation – Inheritance tightly couples an abstraction with an implementation at compile time.
+Bridge pattern can be used to avoid the binding between abstraction and implementation and to select the implementation at run time.
+- Reduction in the number of sub classes – Sometimes, using pure inheritance will increase the number of sub-classes.
+- Cleaner code and Reduction in executable size
+- Interface and implementation can be varied independently – Maintaining two different class hierarchies for interface and implementation entitles to vary one independent of the other.
+- Improved Extensibility – Abstraction and implementation can be extended independently.
+- Loosely coupled client code – Abstraction separates the client code from the implementation.
+So, the implementation can be changed without affecting the client code and the client code need not be compiled when the implementation changes.
+
+== Disadvantages
+
+- Increased complexity due to over use of HAS-A principle
+- Interfaces with only single implementation
+- Multiple indirection
+
+== implementations in JDK
+
+- `` JDBC API``
+- `` SLF4J``
