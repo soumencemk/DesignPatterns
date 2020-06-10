@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Creational/Builder.iml" filepath="$PROJECT_DIR$/Creational/Builder.iml" />
       <module fileurl="file://$PROJECT_DIR$/Creational/Creational.iml" filepath="$PROJECT_DIR$/Creational/Creational.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/DesignPatterns.iml" filepath="$PROJECT_DIR$/.idea/DesignPatterns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/structural/structural.iml" filepath="$PROJECT_DIR$/structural/structural.iml" />
     </modules>
   </component>
 </project>
