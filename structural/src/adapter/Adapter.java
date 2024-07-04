@@ -1,74 +1,56 @@
 package adapter;
 
-/**
- * @author Soumen Karmakar
- * 10/06/2020
- */
+
+interface Charger {
+    public void charge();
+}
+
+
+//Target interface
+interface IPhone {
+    void charge();
+}
+
 public class Adapter {
-    public static void main(String args[]) {
-        Sparrow sparrow = new Sparrow();
-        ToyDuck toyDuck = new PlasticToyDuck();
+    public static void main(String[] args) {
+        IPhone6s iphone6s = new IPhone6s(new IPhone4sTo6sCharger());
+        iphone6s.charge();
+    }
 
-        // Wrap a bird in a birdAdapter so that it
-        // behaves like toy duck
-        ToyDuck birdAdapter = new BirdAdapter(sparrow);
+}
 
-        System.out.println("Sparrow...");
-        sparrow.fly();
-        sparrow.makeSound();
+//Adaptee class
+class IPhone4sCharger implements Charger {
 
-        System.out.println("ToyDuck...");
-        toyDuck.squeak();
-
-        // toy duck behaving like a bird
-        System.out.println("BirdAdapter...");
-        birdAdapter.squeak();
+    @Override
+    public void charge() {
+        System.out.println("Charging with 4S Charger");
     }
 }
 
-class BirdAdapter implements ToyDuck {
-    // You need to implement the interface your
-    // client expects to use.
-    Bird bird;
+class IPhone4sTo6sCharger implements Charger {
+    IPhone4sCharger iPhone4sCharger;
 
-    public BirdAdapter(Bird bird) {
-        // we need reference to the object we
-        // are adapting
-        this.bird = bird;
+    public IPhone4sTo6sCharger() {
+        iPhone4sCharger = new IPhone4sCharger();
     }
 
-    public void squeak() {
-        // translate the methods appropriately
-        bird.makeSound();
+    @Override
+    public void charge() {
+        iPhone4sCharger.charge();
     }
 }
 
-class PlasticToyDuck implements ToyDuck {
-    public void squeak() {
-        System.out.println("Squeak");
-    }
-}
+class IPhone6s implements IPhone {
 
-interface ToyDuck {
-    // target interface
-    // toyducks dont fly they just make
-    // squeaking sound
-    public void squeak();
-}
+    Charger iPhone4sTo6sAdapter;
 
-class Sparrow implements Bird {
-    // a concrete implementation of bird
-    public void fly() {
-        System.out.println("Flying");
+    public IPhone6s(Charger iphone4sTo6sAdapter) {
+        this.iPhone4sTo6sAdapter = iphone4sTo6sAdapter;
     }
 
-    public void makeSound() {
-        System.out.println("Chirp Chirp");
+    @Override
+    public void charge() {
+        iPhone4sTo6sAdapter.charge();
     }
-}
-
-interface Bird {
-    public void fly();
-
-    public void makeSound();
 }

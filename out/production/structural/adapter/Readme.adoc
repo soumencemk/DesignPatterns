@@ -1,0 +1,40 @@
+= Adapter Design Pattern
+
+Adapter design pattern is one of the structural design pattern and its used so that two unrelated interfaces can work together. The object, that joins these unrelated interfaces, is called an Adapter
+
+``` text
+     ┌──────┐          ┌───────┐                 ┌───────┐
+     │Client│          │Adapter│                 │Adaptee│
+     └──┬───┘          └───┬───┘                 └───┬───┘
+        │    request()     │                         │
+        │ ────────────────>│                         │
+        │                  │                         │
+        │                  │speceficAdapteeRequest() │
+        │                  │────────────────────────>│
+        │                  │                         │
+        │                  │                         │
+        │                  │<────────────────────────│
+        │                  │                         │
+        │                  │                         │
+        │ <────────────────│                         │
+     ┌──┴───┐          ┌───┴───┐                 ┌───┴───┐
+     │Client│          │Adapter│                 │Adaptee│
+     └──────┘          └───────┘                 └───────┘
+
+```
+== Advantages
+
+- Helps achieve reusability and flexibility.
+- Client class is not complicated by having to use a different interface and can use polymorphism to swap between different implementations of adapters.
+
+== Disadvantages
+
+- All requests are forwarded, so there is a slight increase in the overhead.
+- Sometimes many adaptations are required along an adapter chain to reach the type which is required.
+
+== implementations in JDK
+
+- `` java.util.Arrays#asList()``
+- ``  java.io.OutputStreamWriter(OutputStream) ``
+
+- `` javax.xml.bind.annotation.adapters.XmlAdapter#marshal() and #unmarshal() ``
